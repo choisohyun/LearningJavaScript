@@ -1,0 +1,27 @@
+{
+  "name": "learningjs",
+  "version": "1.0.0",
+  "description": "- [러닝 자바스크립트](http://www.yes24.com/Product/Goods/42806896?Acode=101)를 공부하며 실행한 예제 코드를 올리는 레포",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/choisohyun/LearningJavaScript.git"
+  },
+  "keywords": [
+    "JavaScript"
+  ],
+  "author": "choisohyun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/choisohyun/LearningJavaScript/issues"
+  },
+  "homepage": "https://github.com/choisohyun/LearningJavaScript#readme",
+  "devDependencies": {
+    "eslint": "^6.7.2",
+    "eslint-plugin-react": "^7.17.0",
+    "gulp-eslint": "^6.0.0"
+  }
+}
