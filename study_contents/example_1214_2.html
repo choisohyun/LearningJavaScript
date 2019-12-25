@@ -1,0 +1,103 @@
+<!-- <!DOCTYPE html>
+    
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>스위치</title>
+  <script>
+//    switch(표현식){
+//      case 표현식 1 : 실행문 1 (문장 여러개)
+//      case 표현식 2 : 실행문 2 (문장 여러개)
+//      ...
+//      case 표현식 n : 실행문 n (문장W 여러개)
+//      default : 실행문 n+1 (문장 여러개)
+//    }
+    function binaryOperator(a,b,operator){
+      switch(operator){
+        case "+" : return a+b;
+        case "-" : return a-b;
+        case "*" : return a*b;
+        case "/" : return a/b;
+        case "%" : return a%b;
+        case "^" : return Math.pow(a,b);
+        default : return NaN;
+      }
+    }
+    console.log(binaryOperator(2,3,"+"));
+    console.log(binaryOperator(2,3,"-"));
+    console.log(binaryOperator(2,3,"*"));
+    console.log(binaryOperator(2,3,"/"));
+    console.log(binaryOperator(2,3,"%"));
+    console.log(binaryOperator(2,3,"^"));
+    console.log(binaryOperator(2,3,"A"));
+  </script>
+</head>
+<body>
+  
+</body>
+</html> -->
+
+<!-- prompt.html --> 
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>prompt</title>
+    <script type="text/javascript"> 
+        const id = 'sohyun';
+        const pw = '1234';
+        var idInput = prompt('id를 입력하세요.'); 
+
+        if (idInput === id) {
+            var pwInput = prompt('pw를 입력하세요');
+            if (pwInput === pw) alert('로그인 완료');
+            else alert('비밀번호가 틀렸습니다.');
+        }
+        else {
+            alert('올바른 아이디를 입력하세요.'); 
+        }
+
+    </script>
+</head>
+
+<body> </body>
+
+</html> -->
+
+
+<!---->
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>혈압</title>
+    <script type="text/javascript"> 
+        window.onload = function () {
+            document.getElementById('button').onclick = function () {
+                var hp = parseFloat(document.getElementById('high').value);
+                var lp = parseFloat(document.getElementById('low').value);
+                var judgement = document.getElementById('judgement');
+
+                if (hp < 120 && lp < 80) {
+                    judgement.innerHTML = "당신의 혈압은 정상입니다."
+                }
+                else if ((hp >= 120 && hp < 139) || (lp >= 80 && lp < 89)) {
+                    judgement.innerHTML = "당신의 혈압은 다소 높습니다.";
+                }
+                else {
+                    judgement.innerHTML = "당신은 고혈압입니다.";
+                }
+            }
+        }
+    </script>
+</head>
+
+<body> 
+    <p>수축기 혈압(최고 혈압) : <input type="number" id="high"></p>
+    <p>수축기 혈압(최고 혈압) : <input type="number" id="low"></p>
+    <p id="judgement">이곳에 판정 결과가 표시됩니다.</p>
+    <input type="button" id="button" value="확인하기">
+</body>
+
+</html>

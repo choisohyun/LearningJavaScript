@@ -6,6 +6,8 @@
     - [01_firstApp] Directory에 생성
 
 - (2019.12.13) Chapter 2. 자바스크립트 개발 도구
+<details>
+    <summary>Click to expand!</summary>
     - 프로젝트 구조
     ```
     .git        # git
@@ -26,7 +28,33 @@
         `gulpfile.js`에 파이프로 연결
     4) ESLint 설치
         ESLint: 코드를 검토해 자주 일어나는 실수를 알려주는 프로그램. 
+</details>
 - (2019.12.13) Chapter 3. 리터럴과 변수, 상수, 데이터 타입
+<details>
+    <summary>Click to expand!</summary>
+    - 자바스크립트의 값: 원시 값 또는 객체
+        ```
+        // 원시 값과 객체의 차이
+
+        let a = 3;
+        let b = 3;
+        console.log(a == b);
+        //결과: true
+
+        let obj1 = {a:1, b:2}
+        let obj2 = {a:1, b:2}
+        console.log(obj1 == obj2);
+        //결과: false
+
+        const a = 1;
+        a = 5;
+        //결과: 에러
+
+        const obj = {a:1}
+        obj.a = 5
+        console.log(obj.a);
+        //결과: 5
+        ```
     > 새로 안 내용 정리. 규칙은 따로 적지 않음.
     - 변수(variable) 
         ```
@@ -103,7 +131,10 @@
         Map         객체와 비슷하지만 특정 상황에서 객체보다 유리함
         Set         배열과 비슷하지만 중복 허용 안됨.
         ```
+</details>
 - (2019.12.13) Chapter 4. 제어문
+<details>
+    <summary>Click to expand!</summary>
     - for 루프의 다른 패턴
         ```
         //초기화, 표현식에 여러 문 결합 가능
@@ -141,3 +172,78 @@
         2) break, return문을 써서 불필요한 연산 줄이기
         3) 루프를 완료한 뒤 인덱스 값 사용하기
         4) 배열을 수정할 때 감소하는 인덱스 사용하기
+</details>
+- (2019.12.21) Chapter 5. 표현식과 연산자
+<details>
+    <summary>Click to expand!</summary>
+    - 표현식: 값이 되는 것. 대부분 연산자 표현식
+    - 표현식의 결과를 변수, 상수, 프로퍼티에 할당 가능.
+    - 연산자 우선순위: 자바스크립트가 평가식을 표현하는 순서
+    - 연산자: 값을 만드는 행동
+    - 단항 부정과 단항 플러스
+    ```
+    const a = 5;
+    const x = 3 - -a; // x = 8;
+
+    const b = "5";
+    const y = 3 + +5; //y = 8;
+    ```
+    - 자바스크립트에서는 `10 % 3.6`도 계산 가능함
+    - NaN(특별한 숫자형 값): 무엇과도 같지 않음
+    ```
+    Nan === Nan // false
+    Nan == Nan  // false
+    ```
+    
+    - 산술 연산자
+    ```
+    let x = 2;
+    const r1 = x++ + x++;   // 2 + 3 = 5
+    const r2 = ++x + ++x;   // 5 + 6 = 11
+    const r3 = x++ + ++x;   // 6 + 8 = 14
+    const r4 = ++x + x++;   // 9 + 9 = 18   x = 10
+    let y = 10;
+    const r5 = y-- + y--;   // 10 + 9 = 19
+    const r6 = --y + --y;   // 7 + 6 = 13
+    const r7 = y-- + --y;   // 6 + 4 = 10
+    const r8 = --y + y--;   // 3 + 3 = 6    y = 2
+    ```
+    - `==`을 쓰지 않는 이유
+        - nulㅣ, undefined, 빈 문자열, 숫자 0가 있을 때 (불필요한) 문제가 생김
+        - `===`를 사용할 때 원하는 결과가 나오지 않으면 데이터 타입을 변환해서 사용하는 것 권장
+    - Number.EPSILON: 대략 2.2204460492503130808472633361816E-16 또는 2^-52의 값을 가짐. 정수가 아닌 숫자를 느슨하게 비교하고 싶을 때 사용
+    - Number.MAX_SAFE_INTEGER: 9007199254740991(약 9,000조)
+    - Number.MIN_SAFE_INTEGER: -9007199254740991(약 -9,000조)
+
+    논리 연산자  
+    - 거짓 같은 값
+        - undefined
+        - null
+        - false
+        - 0
+        - NaN
+        - ''(빈 문자열)
+    - 참 같은 값
+        - object.valueOf() 메소드로 반환되는 객체(빈 객체나 false라도 참 같은 값임)
+        - Array(빈 배열이라도 참 같은 값임)
+        - 공백 문자열(" ")
+        - 문자열 false
+    
+    단축 평가  
+    (피연산자는 x, y 순서로 있음) 
+    - &&일 때, x가 거짓 같은 값이면 x
+    - &&일 때, x가 참 같은 값이면 y
+    - ||일 때, x가 거짓 같은 값이면 y
+    - ||일 때, x가 참 같은 값이면 x
+
+    조건 연산자
+    - 자바스크립트의 유일한 3항 연산자
+    `const result = false ? "true" : "false";`  
+
+    쉼표 연산자
+    - 표현식을 결합하여 두 표현식을 평가한 후, 두 번째 표현식의 결과를 반환하는 연산자
+    - 표현식을 하나 이상 실행해야 하지만 값으로 필요한 것은 마지막 표현식의 결과뿐일 때 유용함
+    - `z = (x++, y++);`  
+
+    
+</details>
